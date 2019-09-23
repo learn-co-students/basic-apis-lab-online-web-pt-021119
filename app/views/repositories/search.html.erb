@@ -3,5 +3,31 @@
   <%= label_tag :query %>
   <%= text_field_tag :query %>
   <%= submit_tag "Search Github!" %>
-<% end %>
 
+  <div>
+    <% if @timeout %>
+      <p><%= @timeout %></p>
+    <% elsif @errors %>
+      <p>The following errors were present:</p>
+      <ul>
+        <% @errors.each do |error| %>
+        <li>
+          <%= error['message'] %>
+        </li>
+        <% end %>
+      </ul>
+    <% elsif @items %>
+      <ul>
+        <% @items.each do |item| %>
+        <li>
+          <%= item['name'] %><br>
+          <a href=<%= item['html_url'] %>><%= item['html_url'] %></a><br>
+          <%= item['description'] %>
+        </li>
+        <br>
+        <% end %>
+      </ul>
+      <% end %>
+  </div>
+
+<% end %>
