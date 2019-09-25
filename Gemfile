@@ -46,3 +46,7 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 end
+
+gem "dotenv-rails", "~> 2.7"
+
+gem "pry", "~> 0.12.2"
